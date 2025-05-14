@@ -10,8 +10,14 @@ To set up the project, clone the repository and navigate to the project director
 git clone <repository-url>
 cd LLD\ Projects
 ```
+### Elevator System
+The Elevator System is a low-level design implementation that simulates the behavior of elevators in a building. It includes features such as:
+- Elevator movement between floors.
+- Handling multiple elevators.
+- Requesting elevators based on direction and floor.
+- Customizable elevator dispatching strategies.
 
-## Usage
+## Tic Tac Toe Game
 To run the Tic Tac Toe game, navigate to the appropriate directory and execute the main class.
 
 ## Contributing
