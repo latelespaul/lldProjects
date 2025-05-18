@@ -19,6 +19,13 @@ public class Elevator {
         // Logic to move the elevator to the specified floor
         this.currentFloor = floor;
         this.isMoving = true;
+        try {
+            // Simulate elevator moving time
+            System.out.println("Elevator " + id + " moving to floor: " + floor);
+            Thread.sleep(1000); // Simulate door open time
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void stop() {
@@ -33,63 +40,35 @@ public class Elevator {
     public boolean isMoving() {
         return isMoving;
     }
-    public int getId() {
-        return id;
+    public void openDoor() {
+        // Logic to open the elevator door
+        System.out.println("Opening door at floor: " + currentFloor);
+        // wait
+        try {
+            Thread.sleep(1000); // Simulate door open time
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
-    public Direction getDirection() {
+    public void closeDoor() {
+        // Logic to close the elevator door
+        System.out.println("Closing door at floor: " + currentFloor);
+        try {
+            Thread.sleep(1000); // Simulate door open time
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public  Direction getDirection() {
         return direction;
     }
-    public void setDirection(Direction direction) {
-        this.direction = direction;
+
+    public void setMoving(boolean b) {
+        this.isMoving = b;
     }
-    public State getState() {
-        return state;
-    }
+
     public void setState(State state) {
         this.state = state;
     }
-    public void setCurrentFloor(int currentFloor) {
-        this.currentFloor = currentFloor;
-    }
-    public void setMoving(boolean moving) {
-        isMoving = moving;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setDirectionAndState(Direction direction, State state) {
-        this.direction = direction;
-        this.state = state;
-    }
-    public void setMovingAndState(boolean moving, State state) {
-        isMoving = moving;
-        this.state = state;
-    }
-    public void setMovingAndDirection(boolean moving, Direction direction) {
-        isMoving = moving;
-        this.direction = direction;
-    }
-    public void setMovingAndDirectionAndState(boolean moving, Direction direction, State state) {
-        isMoving = moving;
-        this.direction = direction;
-        this.state = state;
-    }
-    public void setCurrentFloorAndState(int currentFloor, State state) {
-        this.currentFloor = currentFloor;
-        this.state = state;
-    }
-    public void setCurrentFloorAndDirection(int currentFloor, Direction direction) {
-        this.currentFloor = currentFloor;
-        this.direction = direction;
-    }
-    public void setCurrentFloorAndDirectionAndState(int currentFloor, Direction direction, State state) {
-        this.currentFloor = currentFloor;
-        this.direction = direction;
-        this.state = state;
-    }
-    public void setCurrentFloorAndMoving(int currentFloor, boolean moving) {
-        this.currentFloor = currentFloor;
-        isMoving = moving;
-    }
-
 }

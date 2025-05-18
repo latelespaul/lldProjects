@@ -9,7 +9,6 @@ public class InternalButtons implements Button {
         this.elevator = elevator;
     }
 
-    @Override
     public int getFloor() {
         return floor;
     }

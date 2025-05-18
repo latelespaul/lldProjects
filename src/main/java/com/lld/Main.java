@@ -1,5 +1,6 @@
 package com.lld;
 
+import com.lld.elevatorsystem.ElevatorManagementSystem;
 import com.lld.tictactoe.TicTacToeMain;
 
 import java.io.File;
@@ -8,6 +9,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        ElevatorManagementSystem elevatorManagementSystem = new ElevatorManagementSystem();
+        elevatorManagementSystem.startSystem();
+    }
+
+
+    public  static  void start_tic_tac_toe() {
         try (Scanner sc = new Scanner(new File("src/main/resources/input.txt"))) {
             System.out.println("Welcome to Tic Tac Toe");
             int size = sc.nextInt();

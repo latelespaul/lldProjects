@@ -9,7 +9,6 @@ public class ExternalButtons implements  Button{
         this.isPressed = false;
     }
 
-    @Override
     public int getFloor() {
         return floor;
     }

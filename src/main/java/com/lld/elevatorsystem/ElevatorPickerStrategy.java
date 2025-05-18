@@ -6,5 +6,5 @@ public interface ElevatorPickerStrategy {
 
     Elevator pickElevator(int floor, Direction direction);
 
-    void setElevators(List<Elevator> elevators);
+    void setElevators(Elevator elevators);
 }

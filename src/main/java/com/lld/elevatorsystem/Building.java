@@ -6,43 +6,46 @@ import java.util.List;
 public class Building {
     private int numberOfFloors;
     private int numberOfElevators;
-    private List<Elevator> elevators;
+    private Elevator elevators;
     private List<Floor> floors;
-    private final ElevatorPickerStrategy elevatorPickerStrategy;
-    private final ElevartorDispatcher elevatorDispatcher;
+    private ElevartorDispatcher elevatorDispatcher;
 
+    public Building(int numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
+        this.numberOfElevators = 1;
+        this.elevators = new Elevator(0);
+        this.floors = new ArrayList<>();
+        initializeBuilding();
+    }
     public Building(int numberOfFloors, int numberOfElevators) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfElevators = numberOfElevators;
-        this.elevators = new ArrayList<>();
+        this.elevators = new Elevator(0);
         this.floors = new ArrayList<>();
-        this.elevatorPickerStrategy = new OddEvenElevatorPickerStrategy();
-        this.elevatorDispatcher = new ElevatorDispatcherScanAlgorithm();
         initializeBuilding();
     }
-    private Building (int numberOfFloors, int numberOfElevators, ElevatorPickerStrategy elevatorPickerStrategy, ElevartorDispatcher elevatorDispatcher) {
+    public Building (int numberOfFloors, int numberOfElevators, ElevartorDispatcher elevatorDispatcher) {
         this.numberOfFloors = numberOfFloors;
         this.numberOfElevators = numberOfElevators;
-        this.elevatorDispatcher = elevatorDispatcher;
-        this.elevators = new ArrayList<>();
+        this.elevators = new Elevator(0);
         this.floors = new ArrayList<>();
-        this.elevatorPickerStrategy = elevatorPickerStrategy;
         initializeBuilding();
     }
 
     private void initializeBuilding() {
-        for (int i = 0; i < numberOfElevators; i++) {
-            elevators.add(new Elevator(i));
-        }
         for (int i = 0; i < numberOfFloors; i++) {
             Button button =new ExternalButtons(i);
             floors.add(new Floor(i, button));
         }
-        for (Elevator elevator : elevators) {
-            elevatorDispatcher.registerElevator(elevator);
-        }
-        elevatorPickerStrategy.setElevators(elevators);
+//        elevatorPickerStrategy.setElevators();
 
     }
 
+    public Elevator requestElevator(int floorNumber, Direction direction) {
+        return elevators;
+    }
+
+    public int getNumberOfFloors() {
+        return numberOfFloors;
+    }
 }
